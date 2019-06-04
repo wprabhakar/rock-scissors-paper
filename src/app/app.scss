@@ -1,0 +1,148 @@
+* {
+  --ion-background-color: #5890DB!important;
+  font-size: 20px ;
+}
+
+ion-icon {
+  font-size: 64px;
+  border:0px ;
+}
+
+.contestants {
+  color: #082B5D ;
+  text-align: center ;
+  width: 100% ;
+  border:0px;
+  padding:0px ; 
+  margin:10px;
+}
+
+.spacer-10 {
+  height:10px ;
+}
+
+.spacer-20 {
+  height:20px ;
+}
+
+.spacer-70 {
+  height:70px ;
+}
+
+p {
+  color: #F6F6F6;
+  width: 100%;
+  text-align: center ;
+}
+
+
+svg {
+  fill: var(--ion-background-color) ;
+  stroke:white ;
+  stroke-width: 8px ;
+  width: 142px ;
+  height: 142px ;
+  text-anchor: middle;
+}
+.timer-count {
+  font-size: 40px;
+  fill: white;
+  stroke-width: 2px
+}
+.timer-text {
+  font-size: 22px;
+  fill: #F6F6F6;
+  stroke-width: 0px;
+}
+
+@mixin centre($axis: "both"){
+	position:absolute;
+	@if $axis == "y"{
+		top:50%;
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+        transform: translateY(-50%);
+	}
+	@if $axis == "x"{
+		left:50%;
+        -webkit-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        -o-transform: translateX(-50%);
+        transform: translateX(-50%);
+	}
+	@if $axis == "both"{
+		top:50%;
+		left:50%;
+		-webkit-transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+	}	
+}
+
+div {
+    display:block;
+    text-align:center;
+    width: 100% ;
+    padding:0;
+    margin: 0 auto;
+}
+
+#v_center{
+    @include centre(y);
+}
+
+#h_center{
+    @include centre(x);
+}
+
+#xy_center{
+    @include centre;
+}
+
+.wrapper {
+  @include centre;  
+  max-width: 350px;
+}
+
+.hr {
+  width: 80%;
+  border-bottom: 2px solid #ccc;
+  margin: auto;
+  padding:0px;
+}
+
+.disabled {
+  border:0px ;
+}
+
+.clickable-icon {
+  background-color: inherit;
+  outline: none;
+}
+
+// large button 
+.clickable {
+  width:100%;
+  border:30px ;
+  display: block ;
+  font-weight: bold ;
+  align-self: center;
+  background-color: #E5A844;
+  padding: 14px ;
+}
+
+// small button 
+.small-clickable {
+  @extend .clickable;
+  font-size: 16px ;
+}
+
+.result {
+  font-size: 34px ;
+  letter-spacing: 2px;
+}

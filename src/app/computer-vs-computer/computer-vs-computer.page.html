@@ -1,0 +1,51 @@
+<ion-content>
+  <div class="wrapper">
+    <div *ngIf="bNewGame">
+      <div>
+        <svg>
+          <circle cx="50%" cy="50%" r="60" />
+          <g transform="translate(71,71)">
+            <text x="0" class="timer-count">
+              {{iRemainingTime}}
+            </text>
+          </g>
+          <g transform="translate(70,108)">
+            <text x="0" class="timer-text">
+              Timer
+            </text>
+          </g>
+        </svg>
+      </div>
+      <p class="spacer-10"></p>
+      <p class="spacer-10"></p>
+      <p class="contestants">{{sPlayerOne}}</p>
+      <div class="hr"></div>
+      <p class="contestants">{{sPlayerTwo}}</p>
+    </div>
+    <div *ngIf="!bNewGame">
+      <ion-row justify-content-center align-items-center>
+        <ion-col>{{sPlayerOne}}</ion-col>
+        <ion-col>
+          <ion-icon *ngIf="1==playerOneSelection" src="assets/icon/rock.svg"></ion-icon>
+          <ion-icon *ngIf="2==playerOneSelection" src="assets/icon/paper.svg"></ion-icon>
+          <ion-icon *ngIf="3==playerOneSelection" src="assets/icon/scissor.svg"></ion-icon>
+        </ion-col>
+      </ion-row>
+      <ion-row justify-content-center align-items-center>
+        <ion-col>{{sPlayerTwo}}</ion-col>
+        <ion-col>
+          <ion-icon *ngIf="1==playerTwoSelection" src="assets/icon/rock.svg"></ion-icon>
+          <ion-icon *ngIf="2==playerTwoSelection" src="assets/icon/paper.svg"></ion-icon>
+          <ion-icon *ngIf="3==playerTwoSelection" src="assets/icon/scissor.svg"></ion-icon>
+        </ion-col>
+      </ion-row>
+      <p class="result">{{sResult[this.result]}}</p>
+      <ion-row>
+        <ion-col><button class="small-clickable" ion-button block (click)="playGame()">Play again!</button></ion-col>
+        <ion-col><button class="small-clickable" ion-button block routerLink="/home" routerDirection="root">Change
+            mode</button>
+        </ion-col>
+      </ion-row>
+    </div>
+  </div>
+</ion-content>

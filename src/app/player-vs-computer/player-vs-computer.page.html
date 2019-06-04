@@ -1,0 +1,62 @@
+<ion-content>
+  <div class='wrapper'>
+    <div *ngIf="bNewGame">
+      <svg>
+        <circle cx="50%" cy="50%" r="60" />
+        <g transform="translate(71,71)">
+          <text x="0" class="timer-count">
+            {{iRemainingTime}}
+          </text>
+        </g>
+        <g transform="translate(70,108)">
+          <text x="0" class="timer-text">
+            Timer
+          </text>
+        </g>
+      </svg>
+      <p class="spacer-10"></p>
+      <p class="contestants">{{sPlayerTwo}}</p>
+      <p class="hr"></p>
+      <p class="contestants">{{sPlayerOne}}</p>
+      <p class="spacer-10"></p>
+      <p>Choose your move</p>
+    </div>
+    <div *ngIf="!bNewGame">
+      <!-- Showing Result -->
+      <ion-row justify-content-center align-items-center>
+        <ion-col>
+          <ion-icon *ngIf="1==playerTwoSelection" src="assets/icon/rock.svg"></ion-icon>
+          <ion-icon *ngIf="2==playerTwoSelection" src="assets/icon/paper.svg"></ion-icon>
+          <ion-icon *ngIf="3==playerTwoSelection" src="assets/icon/scissor.svg"></ion-icon>
+        </ion-col>
+      </ion-row>
+      <p class="result">{{sResult[this.result]}}</p>
+      <ion-row>
+        <ion-col><button class="small-clickable" ion-button block (click)="playGame()">Play again!</button></ion-col>
+        <ion-col><button class="small-clickable" ion-button block routerLink="/home" routerDirection="root">Change
+            mode</button>
+        </ion-col>
+      </ion-row>
+      <p class="spacer-10"></p>
+    </div>
+    <div>
+      <ion-row justify-content-center align-items-center>
+        <ion-col col-4 text-center>
+          <button class="clickable-icon" sion-button [disabled]="shouldDisable(1)" (click)="selectedPosition(1)">
+            <ion-icon src="assets/icon/rock.svg"></ion-icon>
+          </button>
+        </ion-col>
+        <ion-col col-4 text-center>
+          <button ion-button class="clickable-icon" [disabled]="shouldDisable(2)" (click)="selectedPosition(2)">
+            <ion-icon src="assets/icon/paper.svg"></ion-icon>
+          </button>
+        </ion-col>
+        <ion-col col-4 text-center>
+          <button class="clickable-icon" ion-button [disabled]="shouldDisable(3)" (click)="selectedPosition(3)">
+            <ion-icon src="assets/icon/scissor.svg"></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
+    </div>
+  </div>
+</ion-content>
