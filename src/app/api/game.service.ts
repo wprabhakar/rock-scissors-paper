@@ -21,6 +21,11 @@ export class GameService {
   {
     if ( s1 == NONE || s2 == NONE ) return -1 ;
     if ( s1 == s2 ) return 0 ;
+    // let d = s1 - s2 ;
+    // if ( d == -1 ) return 2 ;
+    // if ( d == 1 ) return 1 ;
+    // if ( d == -2 ) return 1 ;
+    // if ( d == 2 ) return 2 ; 
     if ( s1 == ROCK )
     {
       if ( s2 == PAPER ) return 2 ;
